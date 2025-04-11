@@ -24,3 +24,13 @@ urlpatterns = [
 ]
 
 #path('e_p/', include('e_p.urls')), # Uncomment this line if you want to include the e_p app URLs
+
+"""
+Explanation of code so far:
+we now registered our first view and the URLconfig for it.
+And the URLconfig is actually split across two URLs py files.
+One for the app, the e_p app,and one for the entire project (e-paradise folder).
+
+P.s, the one for the entire project basically just is able to route requests that start with different paths.
+
+"""
