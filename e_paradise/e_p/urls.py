@@ -2,7 +2,9 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path("test", views.index)
+    path("test", views.index),
+    path("e_p/<str:any_name>", views.base, name="base") # name paremeter: A unique name to refer to the route elsewhere (like in templates or redirects)
+    
     ]
 
 #path('', views.index, name='index'),
