@@ -1,0 +1,53 @@
+.login-container {
+    max-width: 400px;
+    margin: 60px auto;
+    text-align: center;
+    font-family: sans-serif;
+  }
+  
+  .login-form input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  
+  .login-btn {
+    margin-top: 10px;
+    padding: 12px 20px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    background-color: lightgray;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .divider {
+    margin-top: 20px;
+    font-size: 1rem;
+  }
+  
+  .oauth-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px 0;
+  }
+  
+  .oauth-icons img {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+  }
+  
+  .signup {
+    font-size: 0.95rem;
+  }
+  
+  .signup a {
+    color: #3366cc;
+    text-decoration: none;
+  }  

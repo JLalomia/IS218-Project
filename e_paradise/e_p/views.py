@@ -35,3 +35,10 @@ def ProductTemp(request):
         request,
         'e_p/TempProductPage.html',
     )
+
+def Login(request):
+    print(request.build_absolute_uri())
+    return render(
+        request,
+        'e_p/Login.html',
+    )
