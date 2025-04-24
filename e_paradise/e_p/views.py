@@ -41,3 +41,7 @@ def Login(request):
 def Signup(request):
     print(request.build_absolute_uri())
     return render(request, 'e_p/Signup.html')
+
+def Explore(request):
+    print(request.build_absolute_uri())
+    return render(request, 'e_p/ExplorePlatforms.html')

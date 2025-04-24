@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Product Page Template</title>
+        <link rel="stylesheet" href="{% static 'css/productPage.css' %}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    </head>
+</html>
+<body>
+    {% include "e_p/navbar.html" %}
+    <h2>Free Services</h2>
+    <div class="product-container">
+        <div class="slider" id="productSlider">
+            <div class="product-card">
+                <img src="{% static 'images/KhanAcademyLogo.jpg' %}" class="product-image" alt="Product Image">
+                <p>Name 1</p>
+                <p>Description</p>
+                <p>Price</p>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <i class="far fa-star"></i>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="{% static 'images/KhanAcademyLogo.jpg' %}" class="product-image" alt="Product Image">
+                <p>Name 1</p>
+                <p>Description</p>
+                <p>Price</p>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <i class="far fa-star"></i>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="{% static 'images/KhanAcademyLogo.jpg' %}" class="product-image" alt="Product Image">
+                <p>Name 1</p>
+                <p>Description</p>
+                <p>Price</p>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <i class="far fa-star"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
