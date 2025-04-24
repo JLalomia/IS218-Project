@@ -21,4 +21,10 @@ def base(request, any_name): #any_name is the function parameter that catches wh
                 'date': datetime.now()
             }
             )
-    
+
+def home(request):
+    print(request.build_absolute_uri())
+    return render(
+        request,
+        'e_p/homepage.html',
+    )

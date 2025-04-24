@@ -3,7 +3,8 @@ from . import views
 
 urlpatterns = [
     path("test", views.index),
-    path("e_p/<str:any_name>", views.base, name="base") # name paremeter: A unique name to refer to the route elsewhere (like in templates or redirects)
+    path("e_p/<str:any_name>", views.base, name="base"), # name paremeter: A unique name to refer to the route elsewhere (like in templates or redirects)
+    path("homepage", views.home)
     
     ]
 

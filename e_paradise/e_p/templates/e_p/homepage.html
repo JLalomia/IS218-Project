@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>E-Paradise Homepage</title>
+        <link rel="stylesheet" href="{% static 'css/homepage.css' %}">
+    </head>
+<body>
+    {% include "e_p/navbar.html" %}
+    <section class="jumbotron-section">
+        <div class="jumbotron-columns">
+          <div class="jumbotron-left">
+            <h2>Ensure success – Explore various learning platforms!</h2>
+            <p>See what other students are saying and find your perfect fit.</p>
+          </div>
+      
+          <!-- Slideshow -->
+          <div class="jumbotron-right">
+            <div class="slides active">
+              <h2>Khan Academy</h2>
+              <p>*brief description of Khan Academy*</p>
+            </div>
+            <div class="slides">
+              <h2>Udemy</h2>
+              <p>*brief description of Udemy*</p>
+            </div>
+            <div class="slides">
+              <h2>Code Academy</h2>
+              <p>*brief description of Code Academy*</p>
+            </div>
+            <div class="dots">
+              <span class="dot active"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <script src="{% static 'js/slider.js' %}"></script> 
+</body>
+</html>
