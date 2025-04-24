@@ -28,3 +28,10 @@ def home(request):
         request,
         'e_p/homepage.html',
     )
+
+def ProductTemp(request):
+    print(request.build_absolute_uri())
+    return render(
+        request,
+        'e_p/TempProductPage.html',
+    )
