@@ -32,13 +32,12 @@ def home(request):
 def ProductTemp(request):
     print(request.build_absolute_uri())
     return render(
-        request,
-        'e_p/TempProductPage.html',
-    )
+        request, 'e_p/TempProductPage.html')
 
 def Login(request):
     print(request.build_absolute_uri())
-    return render(
-        request,
-        'e_p/Login.html',
-    )
+    return render(request, 'e_p/Login.html')
+
+def Signup(request):
+    print(request.build_absolute_uri())
+    return render(request, 'e_p/Signup.html')

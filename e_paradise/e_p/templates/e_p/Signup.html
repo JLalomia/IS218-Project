@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>E-Paradise Sign Up</title>
+        <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+    </head>
+    <body>
+        {% include "e_p/navbar.html" %}
+
+        <div class="signup-container">
+            <form action="/signup" method="POST" class="signup-form">
+                {% csrf_token %}
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="text" name="username" placeholder="Username" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <button type="submit" class="signup-btn">CREATE ACCOUNT</button>
+            </form>
+
+            <div class="divider"></div>
+
+            <div class="signup-oauth">
+                <p>Or, sign up with:</p>
+                <div class="oauth-icons">
+                    <a href="/accounts/google/login"><img src="{% static 'images/google-icon.png' %}" alt="Google login"></a>
+                    <a href="/accounts/microsoft/login"><img src="{% static 'images/microsoft-icon.png' %}" alt="Microsoft login"></a>
+                    <a href="/accounts/apple/login"><img src="{% static 'images/apple-icon.png' %}" alt="Apple login"></a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

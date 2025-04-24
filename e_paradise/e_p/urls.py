@@ -4,9 +4,10 @@ from . import views
 urlpatterns = [
     path("test", views.index),
     path("e_p/<str:any_name>", views.base, name="base"), # name paremeter: A unique name to refer to the route elsewhere (like in templates or redirects)
-    path("homepage", views.home),
-    path("TempProductPage", views.ProductTemp),
-    path("Login", views.Login),
+    path("homepage/", views.home, name='homepage'),
+    path("TempProductPage/", views.ProductTemp, name='TempProductPage'),
+    path("Login/", views.Login, name='Login'),
+    path("Signup/", views.Signup, name='Signup'),
     
     ]
 

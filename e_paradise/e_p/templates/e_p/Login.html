@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>E-Paradise Homepage</title>
+        <title>E-Paradise Login</title>
         <link rel="stylesheet" href="{% static 'css/login.css' %}">
     </head>
     <body>
@@ -26,7 +26,7 @@
             </div>
 
             <p class="signup">Don't have an account?</p>
-            <p><a href="/">Create New Account</a></p>
+            <p><a href="{% url 'Signup' %}">Create New Account</a></p>
         </div>
     </body>
 </html>

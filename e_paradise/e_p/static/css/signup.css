@@ -1,0 +1,62 @@
+.signup-container {
+    max-width: 900px;
+    margin: 60px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: sans-serif;
+  }
+  
+  .signup-form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+  }
+  
+  .signup-form input {
+    padding: 12px;
+    font-size: 1rem;
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: #d9d9d9;
+  }
+  
+  .signup-btn {
+    padding: 12px;
+    font-weight: bold;
+    background-color: lightgray;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .divider {
+    width: 2px;
+    background-color: black;
+    height: 80%;
+    margin: 0 30px;
+  }
+  
+  .signup-oauth {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .signup-oauth p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+  
+  .oauth-icons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+  }
+  
+  .oauth-icons img {
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+  }  
