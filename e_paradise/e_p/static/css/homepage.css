@@ -1,9 +1,4 @@
 .jumbotron-section {
-    /**background-color: black;
-    color: white;
-    padding: 40px 0;
-    display: flex;
-    justify-content: center;**/
     display: flex;
     justify-content: center;
     margin: 0;
@@ -12,20 +7,18 @@
   
   .jumbotron-columns {
     display: flex;
-    /**width: 80%;**/
     width: 100vw;
     height: 100%;
   }
   
   .jumbotron-left, .jumbotron-right {
     flex: 1;
-    /*padding: 20px;*/
     padding: 40px;
     box-sizing: border-box;
   }
   
   .jumbotron-left {
-    background-color: #717171;
+    background-color: #8FA7B9;
     color: white;
     display: flex;
     flex-direction: column;
@@ -33,7 +26,7 @@
   }
   
   .jumbotron-right {
-    background-color: black;
+    background-color: #102B61;
     color: white;
     position: relative;
     display: flex;

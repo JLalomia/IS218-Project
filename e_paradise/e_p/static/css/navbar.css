@@ -14,18 +14,25 @@
 .logo-box {
     font-size: 2rem;
     font-weight: bold;
-    background: #ccc;
+    background-color: #A93480;
+    color: white;
     padding: 10px 15px;
     border-radius: 5px;
+    position: relative;
 }
 
 .site-title {
     font-size: 2.5rem;
     margin: 0;
+    color: #A93480 !important;
+}
+
+.logo-icon {
+    margin-left: 5px;
 }
 
 .navbar {
-    background-color: #d9d9d9;
+    background-color: #AFDBE4;
     display: flex;
     justify-content: space-around;
     padding: 20px 0;
@@ -34,5 +41,5 @@
 .nav-link {
     font-weight: bold;
     text-decoration: none;
-    color: black;
+    color: #1E396F;
 }
