@@ -9,69 +9,36 @@
         <link rel="stylesheet" href="{% static 'css/productPage.css' %}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     </head>
-<body>
-    {% include "e_p/navbar.html" %}
-    <h2>Free Services</h2>
-    <div class="product-container">
-        <div class="slider-container">
-            <div class="slider" id="productSlider">
+    <body>
+        {% include "e_p/navbar.html" %}
+        <h2>Free Services</h2>
+        <div class="product-container">
+            <div class="slider">
+                {% for product in products %}
                 <div class="product-card">
-                    <img src="{% static 'images/KhanAcademyLogo.jpg' %}" class="product-image" alt="Product Image">
-                    <p>Name 1</p>
-                    <p>Description</p>
-                    <p>Price</p>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                        <i class="far fa-star"></i>
+                    {% if product.image %}
+                    <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-image">
+                    {% endif %}
+                    <div class="produc-info">
+                        <p>{{ product.name }}</p>
+                        <p>{{ product.description }}</p>
+                        <p>${{ product.price }}</p>
+
+                        <div class="stars">
+                        {% for i in "12345" %}
+                            {% if i|add:'0' <= product.average_rating %}
+                            <i class="fas fa-star"></i>
+                            {% elif i|add:'0' <= product.average_rating|add:'0.5' %}
+                            <i class="fas fa-star-half-alt"></i>
+                            {% else %}
+                            <i class="far fa-star"></i>
+                            {% endif %}
+                        {% endfor %}
+                        </div>
                     </div>
                 </div>
-                <div class="product-card">
-                    <img src="{% static 'images/KhanAcademyLogo.jpg' %}" class="product-image" alt="Product Image">
-                    <p>Name 1</p>
-                    <p>Description</p>
-                    <p>Price</p>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <img src="{% static 'images/KhanAcademyLogo.jpg' %}" class="product-image" alt="Product Image">
-                    <p>Name 1</p>
-                    <p>Description</p>
-                    <p>Price</p>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <img src="{% static 'images/KhanAcademyLogo.jpg' %}" class="product-image" alt="Product Image">
-                    <p>Name 1</p>
-                    <p>Description</p>
-                    <p>Price</p>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <img src="{% static 'images/KhanAcademyLogo.jpg' %}" class="product-image" alt="Product Image">
-                    <p>Name 1</p>
-                    <p>Description</p>
-                    <p>Price</p>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
-    </div>
-</body>
+    </body>
 </html>

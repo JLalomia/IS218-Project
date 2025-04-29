@@ -10,7 +10,8 @@ urlpatterns = [
     path('TempProductPage/', views.ProductTemp, name='TempProductPage'),
     path('Login/', views.Login, name='Login'),
     path('Signup/', views.Signup, name='Signup'),
-    path('ExplorePlatforms/', views.Explore, name="Explore"),
+    #path('ExplorePlatforms/', views.Explore, name="Explore"),
+    path('ExplorePlatforms/', views.explore_platforms, name="Explore"),
     
     ]
 
