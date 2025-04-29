@@ -19,7 +19,8 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('e_paradise/', include('e_p.urls')) #http://127.0.0.1:8000/e_paradise/test
+    #path('e_paradise/', include('e_p.urls')) #http://127.0.0.1:8000/e_paradise/test
+    path('', include('e_p.urls'))
 
 ]
 
