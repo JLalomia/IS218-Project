@@ -14,4 +14,4 @@ function nextSlide() {
   showSlide(currentSlide);
 }
 
-setInterval(nextSlide, 5000); // Change slide every 5 seconds
+setInterval(nextSlide, 15000); // Change slide every 5 seconds
