@@ -6,12 +6,51 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{% static 'css/productPage.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     {% include "e_p/navbar.html" %}
-    <h1>{{ product.name }}</h1>
-    <img src="{{ product.image.url }}" alt="{{ product.name }}">
-    <p>{{ product.description }}</p>
-    <p>${{ product.price }}</p>
+
+    <!--PRODUCT OVERVIEW-->
+    <div class="product-container">
+        <div class="product-overview">
+            <img src="{{ product.image.url }}" class="product-image" alt="{{ product.name }}">
+            <div class="product-details">
+                <h2>{{ product.name }}</h2>
+                <p class="price">${{ product.price }}</p>
+                <p class="description">{{ product.description }}</p>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <!--REVIEWS-->
+    <section class="section reviews-section">
+        <h2>Reviews</h2>
+        <div class="slider-container">
+            <div class="slider" id="reviewSlider">
+                <!--Cards for each review-->
+                {% for review in reviews %}
+                    <div class="review-card">
+                        <p><strong>{{ review.user }}</strong></p>
+                        <p>{{ review.comment }}</p>
+                        <div class="stars">
+                            {% for i in "12345" %}
+                                {% if forloop.counter <= review.rating %}
+                                    <i class="fas fa-star"></i>
+                                {% else %}
+                                    <i class="far fa-star"></i>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% empty %}
+                    <p>No reviews yet.</p>
+                {% endfor %}
+            </div>
+        </div>
+        <button class="view-all-btn">View All Reviews</button>
+    </section>
 </body>
 </html>
