@@ -4,6 +4,8 @@ from datetime import datetime
 from .models import Product, Review
 from .forms import ReviewForm
 from django.http import HttpResponseRedirect
+from django.db.models import Avg
+
 
 # Create your views here.
 
@@ -27,9 +29,11 @@ def base(request, any_name): #any_name is the function parameter that catches wh
 
 def home(request):
     print(request.build_absolute_uri())
+    top_products = Product.objects.annotate(avg_rating=Avg('reviews__rating')) \
+                                  .order_by('-avg_rating')[:3]
     return render(
         request,
-        'e_p/homepage.html',
+        'e_p/homepage.html',{'top_products': top_products}
     )
 
 def ProductTemp(request):
