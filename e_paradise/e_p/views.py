@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from datetime import datetime
 from .models import Product, Review
@@ -36,10 +36,10 @@ def home(request):
         'e_p/homepage.html',{'top_products': top_products}
     )
 
-def ProductTemp(request):
+def Khan(request):
     print(request.build_absolute_uri())
     return render(
-        request, 'e_p/TempProductPage.html')
+        request, 'e_p/KhanAcademy.html')
 
 def Login(request):
     print(request.build_absolute_uri())
@@ -83,5 +83,7 @@ def explore_reviews(request, pk):
         'product': product,
         'form': form,
     })
-
-
+    
+def product_detail(request, pk):
+    product = get_object_or_404(Product, pk=pk)
+    return render(request, 'e_p/product_detail.html', {'product': product})

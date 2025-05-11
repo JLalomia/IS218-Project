@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>E-Paradise Homepage</title>
+        <link rel="stylesheet" href="{% static 'css/productPage.css' %}">
+    </head>
+    <body>
+        {% include "e_p/navbar.html" %}
+
+        <!--PRODUCT OVERVIEW-->
+        <div class="product-container">
+            <div class="product-overview">
+                <img src="{{ product.image.url }}" class="product-image" alt="Product Image">
+                <div class="product-details">
+                    <h2>Product Name</h2>
+                    <p class="price">$ Price</p>
+                    <p class="description">Product Description</p>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <!--REVIEWS-->
+        <section class="section reviews-section">
+            <h2>Reviews</h2>
+            <div class="slider-container">
+                <div class="slider" id="reviewSlider">
+                    <!--Cards for each review-->
+                    <div class="review-card">
+                        <p>User Review 1</p>
+                    </div>
+                    <div class="review-card">
+                        <p>User Review 2</p>
+                    </div>
+                    <div class="review-card">
+                        <p>User Review 2</p>
+                    </div>
+                    <div class="review-card">
+                        <p>User Review 2</p>
+                    </div>
+                </div>
+            </div>
+            <button class="view-all-btn">View All Reviews</button>
+        </section>
+
+        <hr>
+
+        <!--SIMILAR PRODUCTS-->
+        <section class="section similar-section">
+            <h2>Similar Products</h2>
+            <div class="slider-container">
+                <div class="slider" id="productSlider">
+                    <div class="product-card">
+                        <img src="KhanAcademyLogo.jpg" alt="Service">
+                        <p>Name 1</p>
+                        <p>Description</p>
+                        <p>Price</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="KhanAcademyLogo.jpg" alt="Service">
+                        <p>Name 2</p>
+                        <p>Description</p>
+                        <p>Price</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="KhanAcademyLogo.jpg" alt="Service">
+                        <p>Name 3</p>
+                        <p>Description</p>
+                        <p>Price</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="KhanAcademyLogo.jpg" alt="Service">
+                        <p>Name 4</p>
+                        <p>Description</p>
+                        <p>Price</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>
