@@ -125,7 +125,7 @@ def explore_reviews(request, pk):
 def product_detail(request, pk):
     product = get_object_or_404(Product, pk=pk)
     reviews = Review.objects.filter(product=product)
-
+    
     form = ReviewForm(request.POST or None)
     if request.method == 'POST' and form.is_valid():
         review = form.save(commit=False)
