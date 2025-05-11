@@ -86,4 +86,8 @@ def explore_reviews(request, pk):
     
 def product_detail(request, pk):
     product = get_object_or_404(Product, pk=pk)
-    return render(request, 'e_p/product_detail.html', {'product': product})
+    reviews = Review.objects.filter(product=product)
+    return render(request, 'e_p/product_detail.html', {
+        'product': product,
+        'reviews': reviews
+    })
