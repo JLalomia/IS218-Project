@@ -16,7 +16,7 @@ def index(request):
     return HttpResponse("Hello, world. You're at the e_paradise index.")
 
 
-@staff_member_required
+@staff_member_required # This decorator ensures that only staff members can access this view
 def feedback_report(request):
     print("feedback_report view is active") # This will print in the console when the view is accessed
     try:
