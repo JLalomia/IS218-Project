@@ -6,6 +6,7 @@
     <title>{{ product.name }}</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'css/productReview.css' %}">
     <link rel="stylesheet" href="{% static 'css/productPage.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -54,5 +55,9 @@
         <a href="{% url 'explore_reviews' product.pk %}" class="review-link-btn">Leave a Review</a>
         <br>
     </section>
+
+    <!--LEAVE A REVIEW?-->
+    <a href="{% url 'explore_reviews' product.pk %}" class="review-link-btn">Leave a Review</a>
+
 </body>
 </html>
