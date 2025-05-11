@@ -23,7 +23,7 @@ urlpatterns = [
     path('test', views.index),
     #path("homepage/", views.home, name='homepage'),
     path('', views.home, name='homepage'),
-    path('TempProductPage/', views.ProductTemp, name='TempProductPage'),
+    path('KhanAcademy/', views.Khan, name='KhanAcademy'),
     path('Login/', views.Login, name='Login'),
     path('Signup/', views.Signup, name='Signup'),
     #path('ExplorePlatforms/', views.Explore, name="Explore"),

@@ -1,9 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from datetime import datetime
 from .models import Product, Review
 from .forms import ReviewForm
 from django.http import HttpResponseRedirect
+from django.db.models import Avg
+
 
 from django.contrib.admin.views.decorators import staff_member_required
 
@@ -48,16 +50,23 @@ def base(request, any_name): #any_name is the function parameter that catches wh
 
 def home(request):
     print(request.build_absolute_uri())
+    top_products = Product.objects.annotate(avg_rating=Avg('reviews__rating')) \
+                                  .order_by('-avg_rating')[:3]
     return render(
         request,
-        'e_p/homepage.html',
+        'e_p/homepage.html',{'top_products': top_products}
     )
     
     
 def ProductTemp(request):
     print(request.build_absolute_uri())
     return render(
-        request, 'e_p/TempProductPage.html')
+        request, 'e_p/ProductTemp.html')
+    
+def Khan(request):
+    print(request.build_absolute_uri())
+    return render(
+        request, 'e_p/KhanAcademy.html')
 
 def Login(request):
     print(request.build_absolute_uri())
@@ -101,4 +110,7 @@ def explore_reviews(request, pk):
         'product': product,
         'form': form,
     })
-
+    
+def product_detail(request, pk):
+    product = get_object_or_404(Product, pk=pk)
+    return render(request, 'e_p/product_detail.html', {'product': product})

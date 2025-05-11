@@ -7,6 +7,8 @@
         <title>E-Paradise Homepage</title>
         <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
         <link rel="stylesheet" href="{% static 'css/homepage.css' %}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     </head>
 <body>
     {% include "e_p/navbar.html" %}
@@ -19,16 +21,16 @@
       
           <!-- Slideshow -->
           <div class="jumbotron-right">
-            <div class="slides active">
+            <div class="slides active" style="background-image: url('{% static 'images/KhanAcademyLogo.jpg' %}');">
               <h2>Khan Academy</h2>
               <p>A free, non-profit learning platform where users will be able to learn various subjects ranging
                  from kindergarten level through early....... </p>
             </div>
-            <div class="slides">
+            <div class="slides" style="background-image: url('{% static 'images/udemy.png' %}')">
               <h2>Udemy</h2>
               <p>*brief description of Udemy*</p>
             </div>
-            <div class="slides">
+            <div class="slides" style="background-image: url('{% static 'images/codeacademy.png' %}')">
               <h2>Code Academy</h2>
               <p>*brief description of Code Academy*</p>
             </div>
@@ -41,5 +43,36 @@
         </div>
       </section>
       <script src="{% static 'js/slider.js' %}"></script> 
+    <div class="main-body">
+      <h1>Highly rated by students! - Today's Top 3</h1>
+      <!--Shows top 3 rated learning platforms - updated as users submit reviews-->
+      <div class="product-container">
+        <div class="slider">
+            {% for product in top_products %}
+            <div class="product-card">
+                {% if product.image %}
+                <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-image">
+                {% endif %}
+                <div class="produc-info">
+                    <p style="font-weight: bold">{{ product.name }}</p>
+                    <p style="background-color: #ffffff;">{{ product.description }}</p>
+                    <p style="font-weight: bold">${{ product.price }}</p>
+
+                    <div class="stars">
+                    {% for i in "12345" %}
+                        {% if i|add:'0' <= product.average_rating %}
+                        <i class="fas fa-star"></i>
+                        {% elif i|add:'0' <= product.average_rating|add:'0.5' %}
+                        <i class="fas fa-star-half-alt"></i>
+                        {% else %}
+                        <i class="far fa-star"></i>
+                        {% endif %}
+                    {% endfor %}
+                    </div>
+                    <a href="{% url 'explore_reviews' product.pk %}" class="review-link-btn">Leave a Review</a>
+                </div>
+            </div>
+            {% endfor %}
+    </div>
 </body>
 </html>
