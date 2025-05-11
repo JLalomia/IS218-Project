@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from datetime import datetime
 from .models import Product, Review
@@ -125,7 +125,16 @@ def explore_reviews(request, pk):
 def product_detail(request, pk):
     product = get_object_or_404(Product, pk=pk)
     reviews = Review.objects.filter(product=product)
+
+    form = ReviewForm(request.POST or None)
+    if request.method == 'POST' and form.is_valid():
+        review = form.save(commit=False)
+        review.product = product
+        review.save()
+        return redirect('product_detail', pk=pk)
+
     return render(request, 'e_p/product_detail.html', {
         'product': product,
-        'reviews': reviews
+        'reviews': reviews,
+        'form': form,
     })
