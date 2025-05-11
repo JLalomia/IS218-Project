@@ -14,7 +14,71 @@
         <h2>Free Services</h2>
         <div class="product-container">
             <div class="slider">
-                {% for product in products %}
+                {% for product in free_products %}
+                <a href="{% url 'product_detail' product.pk %}" class="product-card-link">
+                    <div class="product-card">
+                        {% if product.image %}
+                        <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-image">
+                        {% endif %}
+                        <div class="produc-info">
+                            <p style="font-weight: bold">{{ product.name }}</p>
+                            <p style="background-color: #ffffff;">{{ product.description }}</p>
+                            <p style="font-weight: bold">${{ product.price }}</p>
+
+                            <div class="stars">
+                            {% for i in "12345" %}
+                                {% if i|add:'0' <= product.average_rating %}
+                                <i class="fas fa-star"></i>
+                                {% elif i|add:'0' <= product.average_rating|add:'0.5' %}
+                                <i class="fas fa-star-half-alt"></i>
+                                {% else %}
+                                <i class="far fa-star"></i>
+                                {% endif %}
+                            {% endfor %}
+                            </div>
+                            <a href="{% url 'explore_reviews' product.pk %}" class="review-link-btn">Leave a Review</a>
+                        </div>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+        <h2>One Time Fee/Hybrid</h2>
+        <div class="product-container">
+            <div class="slider">
+                {% for product in oneTime_products %}
+                <a href="{% url 'product_detail' product.pk %}" class="product-card-link">
+                    <div class="product-card">
+                        {% if product.image %}
+                        <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-image">
+                        {% endif %}
+                        <div class="produc-info">
+                            <p style="font-weight: bold">{{ product.name }}</p>
+                            <p style="background-color: #ffffff;">{{ product.description }}</p>
+                            <p style="font-weight: bold">${{ product.price }}</p>
+
+                            <div class="stars">
+                            {% for i in "12345" %}
+                                {% if i|add:'0' <= product.average_rating %}
+                                <i class="fas fa-star"></i>
+                                {% elif i|add:'0' <= product.average_rating|add:'0.5' %}
+                                <i class="fas fa-star-half-alt"></i>
+                                {% else %}
+                                <i class="far fa-star"></i>
+                                {% endif %}
+                            {% endfor %}
+                            </div>
+                            <a href="{% url 'explore_reviews' product.pk %}" class="review-link-btn">Leave a Review</a>
+                        </div>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+        <h2>Subscription</h2>
+        <div class="product-container">
+            <div class="slider">
+                {% for product in sub_products %}
                 <a href="{% url 'product_detail' product.pk %}" class="product-card-link">
                     <div class="product-card">
                         {% if product.image %}

@@ -6,3 +6,7 @@ admin.site.register(Review)
 
 class ReviewAdmin (admin.ModelAdmin):
     list_display = ('product', 'user', 'rating',  'created_at')
+    
+class ProductAdmin(admin.ModelAdmin):
+    list_display = ('name', 'price', 'category')
+    list_filter = ('category',)
