@@ -169,6 +169,7 @@
   font-size: 1.5rem;
   color: #FFD700;
   margin-bottom: 10px;
+  float:left;
 }
 
 .review-card,
@@ -189,6 +190,12 @@
 
 .product-card:hover {
     box-shadow: 0 0 20px rgba(27, 11, 75, 0.4); 
+}
+
+.product-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
 }
 
 .product-card p {
@@ -218,3 +225,24 @@
   cursor: pointer;
 }
 
+
+
+.review-link-btn {
+  margin:6% 3%;
+  padding: 1% 2%;
+  background: #A93480;
+  color:white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.card-review-link-btn{
+background:#98eeff;
+color:#1E396F;
+padding:3%;
+float:right;
+margin-top:0;
+margin-left:0;
+}

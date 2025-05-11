@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.jpg' %}">
     <title>{{ product.name }}</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -50,7 +51,8 @@
                 {% endfor %}
             </div>
         </div>
-        <button class="view-all-btn">View All Reviews</button>
+        <a href="{% url 'explore_reviews' product.pk %}" class="review-link-btn">Leave a Review</a>
+        <br>
     </section>
 </body>
 </html>

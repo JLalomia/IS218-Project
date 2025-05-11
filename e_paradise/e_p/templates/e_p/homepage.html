@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.jpg' %}">
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>E-Paradise Homepage</title>
@@ -49,7 +50,7 @@
                 {% endif %}
                 <div class="produc-info">
                     <p style="font-weight: bold">{{ product.name }}</p>
-                    <p style="background-color: #ffffff;">{{ product.description }}</p>
+                    <p style="background-color: #ffffff;padding:1%">{{ product.description }}</p>
                     <p style="font-weight: bold">${{ product.price }}</p>
 
                     <div class="stars">
@@ -63,7 +64,7 @@
                         {% endif %}
                     {% endfor %}
                     </div>
-                    <a href="{% url 'explore_reviews' product.pk %}" class="review-link-btn">Leave a Review</a>
+                    <a href="{% url 'explore_reviews' product.pk %}" class="review-link-btn card-review-link-btn">Leave a Review</a>
                 </div>
             </div>
             {% endfor %}
