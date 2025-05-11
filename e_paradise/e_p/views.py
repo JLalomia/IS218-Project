@@ -7,6 +7,8 @@ from django.http import HttpResponseRedirect
 from django.db.models import Avg
 
 
+from django.contrib.admin.views.decorators import staff_member_required
+
 # Create your views here.
 
 
@@ -14,8 +16,27 @@ def index(request):
     return HttpResponse("Hello, world. You're at the e_paradise index.")
 
 
+@staff_member_required
+def feedback_report(request):
+    print("feedback_report view is active") # This will print in the console when the view is accessed
+    try:
+        reviews = Review.objects.all() # Fetch all reviews from the database
+        print(f"Found {reviews.count()} reviews") # This will print the number of reviews found
+    except Exception as e:
+        print(f"❌ Error fetching reviews: {e}") # This will print any error on the terminal that occurs while fetching reviews
+        return HttpResponse("❌ Error fetching reviews") #this will return an error message to the user if fetching reviews fails
+    
+    # If the reviews are fetched successfully, render the template with the reviews
+    try:
+        return render(request, 'e_p/feedback_report.html', {'reviews': reviews}) #i
+    except Exception as e:
+        print(f"❌ Error rendering template: {e}") # This will print any error on the terminal that occurs while rendering the template
+        return HttpResponse(f"❌ Template error: {e}") #this will return an error message to the user if rendering the template fails
+
+
 #function name "base" to match the html file under the subfolder e_p/templates/e_p/base.html
 #the parameter "any_name" is a placeholder for the name we will pass in the URL and connects to the second path under urls.py in the e_p folder
+
 def base(request, any_name): #any_name is the function parameter that catches what came from the URL
     print(request.build_absolute_uri()) #prints the full URL (like http://localhost:8000/hello/Emily) in the console
     return render(
@@ -35,7 +56,13 @@ def home(request):
         request,
         'e_p/homepage.html',{'top_products': top_products}
     )
-
+    
+    
+def ProductTemp(request):
+    print(request.build_absolute_uri())
+    return render(
+        request, 'e_p/ProductTemp.html')
+    
 def Khan(request):
     print(request.build_absolute_uri())
     return render(
