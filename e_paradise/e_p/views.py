@@ -138,3 +138,5 @@ def product_detail(request, pk):
         'reviews': reviews,
         'form': form,
     })
+
+
