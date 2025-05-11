@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from datetime import datetime
-from .models import Product
+from .models import Product, Review
+from .forms import ReviewForm
+from django.http import HttpResponseRedirect
 
 # Create your views here.
 
@@ -49,4 +51,33 @@ def Explore(request):
 
 def explore_platforms(request):
     products = Product.objects.all()
-    return render(request, 'e_p/ExplorePlatforms.html', {'products': products})
+    form = ReviewForm()
+
+    return render(request, 'e_p/ExplorePlatforms.html', {'products': products, 'form':form,})
+
+def explore_reviews(request, pk):
+    try:
+        product = Product.objects.get(pk=pk)
+    except Product.DoesNotExist:
+        return render(request, '404.html', status=404)
+    
+    form = ReviewForm(request.POST or None)
+    if request.method == 'POST' and form.is_valid():
+        user    = form.cleaned_data['user']
+        rating  = form.cleaned_data['rating']
+        comment = form.cleaned_data['comment']
+
+        Review.objects.create(
+            product=product,
+            user=user,
+            rating=rating,
+            comment=comment
+        )
+        return HttpResponseRedirect(request.path_info)
+    
+    return render(request, 'e_p/product_review.html', {
+        'product': product,
+        'form': form,
+    })
+
+

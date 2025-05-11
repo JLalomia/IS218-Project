@@ -12,6 +12,7 @@ urlpatterns = [
     path('Signup/', views.Signup, name='Signup'),
     #path('ExplorePlatforms/', views.Explore, name="Explore"),
     path('ExplorePlatforms/', views.explore_platforms, name="Explore"),
+    path('explore/<int:pk>/reviews/', views.explore_reviews, name='explore_reviews'),
     
     ]
 

@@ -3,3 +3,6 @@ from .models import Product, Review
 # Register your models here.
 admin.site.register(Product)
 admin.site.register(Review)
+
+class ReviewAdmin (admin.ModelAdmin):
+    list_display = ('product', 'user', 'rating',  'created_at')

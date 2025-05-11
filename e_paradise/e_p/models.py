@@ -19,3 +19,7 @@ class Review(models.Model):
     rating = models.IntegerField()  # out of 5
     comment = models.TextField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.product.name} – {self.user}"
+    

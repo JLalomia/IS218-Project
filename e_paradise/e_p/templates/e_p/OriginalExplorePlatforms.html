@@ -21,10 +21,35 @@
                     <p>Description</p>
                     <p>Price</p>
                     <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                        <i class="far fa-star"></i>
-                    </div>
+                        {% for i in "12345"|make_list %}
+                            {% if forloop.counter <= p.average_rating %}
+                                <i class="fas fa-star"></i>
+                            {% else %}
+                                <i class="far fa-star"></i>
+                            {% endif %}
+                        {% endfor %}
+                    </div>          
+                     <!-- Review -->
+                     <form method="post" action="{% url 'explore_reviews' p.pk %}" class="review-form">
+                        {% csrf_token %}
+                        {{ form.non_field_errors }}
+                        <div class="form-row">
+                            {{ form.user.label_tag }}<br>
+                            {{ form.user }}<br>
+                            {{ form.user.errors }}
+                        </div>
+                        <div class="form-row">
+                            {{ form.rating.label_tag }}<br>
+                            {{ form.rating }}<br>
+                            {{ form.rating.errors }}
+                        </div>
+                        <div class="form-row">
+                            {{ form.comment.label_tag }}<br>
+                            {{ form.comment }}<br>
+                            {{ form.comment.errors }}
+                        </div>
+                        <button type="submit">Submit Review</button>
+                    </form>
                 </div>
                 <div class="product-card">
                     <img src="{% static 'images/KhanAcademyLogo.jpg' %}" class="product-image" alt="Product Image">
@@ -36,6 +61,27 @@
                         <i class="fas fa-star-half-alt"></i>
                         <i class="far fa-star"></i>
                     </div>
+                     <!-- Review -->
+                     <form method="post" action="{% url 'explore_reviews' p.pk %}" class="review-form">
+                        {% csrf_token %}
+                        {{ form.non_field_errors }}
+                        <div class="form-row">
+                            {{ form.user.label_tag }}<br>
+                            {{ form.user }}<br>
+                            {{ form.user.errors }}
+                        </div>
+                        <div class="form-row">
+                            {{ form.rating.label_tag }}<br>
+                            {{ form.rating }}<br>
+                            {{ form.rating.errors }}
+                        </div>
+                        <div class="form-row">
+                            {{ form.comment.label_tag }}<br>
+                            {{ form.comment }}<br>
+                            {{ form.comment.errors }}
+                        </div>
+                        <button type="submit">Submit Review</button>
+                    </form>
                 </div>
                 <div class="product-card">
                     <img src="{% static 'images/KhanAcademyLogo.jpg' %}" class="product-image" alt="Product Image">
@@ -43,10 +89,35 @@
                     <p>Description</p>
                     <p>Price</p>
                     <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                        <i class="far fa-star"></i>
-                    </div>
+                        {% for i in "12345"|make_list %}
+                            {% if forloop.counter <= p.average_rating %}
+                                <i class="fas fa-star"></i>
+                            {% else %}
+                                <i class="far fa-star"></i>
+                            {% endif %}
+                        {% endfor %}
+                    </div>          
+                     <!-- Review -->
+                     <form method="post" action="{% url 'explore_reviews' p.pk %}" class="review-form">
+                        {% csrf_token %}
+                        {{ form.non_field_errors }}
+                        <div class="form-row">
+                            {{ form.user.label_tag }}<br>
+                            {{ form.user }}<br>
+                            {{ form.user.errors }}
+                        </div>
+                        <div class="form-row">
+                            {{ form.rating.label_tag }}<br>
+                            {{ form.rating }}<br>
+                            {{ form.rating.errors }}
+                        </div>
+                        <div class="form-row">
+                            {{ form.comment.label_tag }}<br>
+                            {{ form.comment }}<br>
+                            {{ form.comment.errors }}
+                        </div>
+                        <button type="submit">Submit Review</button>
+                    </form>
                 </div>
                 <div class="product-card">
                     <img src="{% static 'images/KhanAcademyLogo.jpg' %}" class="product-image" alt="Product Image">
@@ -54,10 +125,35 @@
                     <p>Description</p>
                     <p>Price</p>
                     <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                        <i class="far fa-star"></i>
-                    </div>
+                        {% for i in "12345"|make_list %}
+                            {% if forloop.counter <= p.average_rating %}
+                                <i class="fas fa-star"></i>
+                            {% else %}
+                                <i class="far fa-star"></i>
+                            {% endif %}
+                        {% endfor %}
+                    </div>          
+                       <!-- Review -->
+                       <form method="post" action="{% url 'explore_reviews' p.pk %}" class="review-form">
+                        {% csrf_token %}
+                        {{ form.non_field_errors }}
+                        <div class="form-row">
+                            {{ form.user.label_tag }}<br>
+                            {{ form.user }}<br>
+                            {{ form.user.errors }}
+                        </div>
+                        <div class="form-row">
+                            {{ form.rating.label_tag }}<br>
+                            {{ form.rating }}<br>
+                            {{ form.rating.errors }}
+                        </div>
+                        <div class="form-row">
+                            {{ form.comment.label_tag }}<br>
+                            {{ form.comment }}<br>
+                            {{ form.comment.errors }}
+                        </div>
+                        <button type="submit">Submit Review</button>
+                    </form>
                 </div>
                 <div class="product-card">
                     <img src="{% static 'images/KhanAcademyLogo.jpg' %}" class="product-image" alt="Product Image">
@@ -65,10 +161,35 @@
                     <p>Description</p>
                     <p>Price</p>
                     <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                        <i class="far fa-star"></i>
-                    </div>
+                        {% for i in "12345"|make_list %}
+                            {% if forloop.counter <= p.average_rating %}
+                                <i class="fas fa-star"></i>
+                            {% else %}
+                                <i class="far fa-star"></i>
+                            {% endif %}
+                        {% endfor %}
+                    </div>          
+                     <!-- Review -->
+                     <form method="post" action="{% url 'explore_reviews' p.pk %}" class="review-form">
+                        {% csrf_token %}
+                        {{ form.non_field_errors }}
+                        <div class="form-row">
+                            {{ form.user.label_tag }}<br>
+                            {{ form.user }}<br>
+                            {{ form.user.errors }}
+                        </div>
+                        <div class="form-row">
+                            {{ form.rating.label_tag }}<br>
+                            {{ form.rating }}<br>
+                            {{ form.rating.errors }}
+                        </div>
+                        <div class="form-row">
+                            {{ form.comment.label_tag }}<br>
+                            {{ form.comment }}<br>
+                            {{ form.comment.errors }}
+                        </div>
+                        <button type="submit">Submit Review</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -83,10 +204,35 @@
                     <p>Description</p>
                     <p>Price</p>
                     <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                        <i class="far fa-star"></i>
-                    </div>
+                        {% for i in "12345"|make_list %}
+                            {% if forloop.counter <= p.average_rating %}
+                                <i class="fas fa-star"></i>
+                            {% else %}
+                                <i class="far fa-star"></i>
+                            {% endif %}
+                        {% endfor %}
+                    </div>          
+                     <!-- Review -->
+                     <form method="post" action="{% url 'explore_reviews' p.pk %}" class="review-form">
+                        {% csrf_token %}
+                        {{ form.non_field_errors }}
+                        <div class="form-row">
+                            {{ form.user.label_tag }}<br>
+                            {{ form.user }}<br>
+                            {{ form.user.errors }}
+                        </div>
+                        <div class="form-row">
+                            {{ form.rating.label_tag }}<br>
+                            {{ form.rating }}<br>
+                            {{ form.rating.errors }}
+                        </div>
+                        <div class="form-row">
+                            {{ form.comment.label_tag }}<br>
+                            {{ form.comment }}<br>
+                            {{ form.comment.errors }}
+                        </div>
+                        <button type="submit">Submit Review</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -101,10 +247,35 @@
                     <p>Description</p>
                     <p>Price</p>
                     <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                        <i class="far fa-star"></i>
-                    </div>
+                        {% for i in "12345"|make_list %}
+                            {% if forloop.counter <= p.average_rating %}
+                                <i class="fas fa-star"></i>
+                            {% else %}
+                                <i class="far fa-star"></i>
+                            {% endif %}
+                        {% endfor %}
+                    </div>                 
+                        <!-- Review -->
+                        <form method="post" action="{% url 'explore_reviews' p.pk %}" class="review-form">
+                            {% csrf_token %}
+                            {{ form.non_field_errors }}
+                            <div class="form-row">
+                                {{ form.user.label_tag }}<br>
+                                {{ form.user }}<br>
+                                {{ form.user.errors }}
+                            </div>
+                            <div class="form-row">
+                                {{ form.rating.label_tag }}<br>
+                                {{ form.rating }}<br>
+                                {{ form.rating.errors }}
+                            </div>
+                            <div class="form-row">
+                                {{ form.comment.label_tag }}<br>
+                                {{ form.comment }}<br>
+                                {{ form.comment.errors }}
+                            </div>
+                            <button type="submit">Submit Review</button>
+                        </form>
                 </div>
             </div>
         </div>

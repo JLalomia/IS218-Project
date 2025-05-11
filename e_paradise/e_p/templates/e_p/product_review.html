@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review {{ product.name }}</title>
+    <link rel="stylesheet" href="{% static 'css/productReview.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    {% include "e_p/navbar.html" %}
+    <div class="product-detail">
+        <div class="product-info">
+            <div class="stars">
+                {% for i in "12345" %}
+                    {% if i|add:'0' <= product.average_rating %}
+                        <i class="fas fa-star"></i>
+                    {% else %}
+                        <i class="far fa-star"></i>
+                    {% endif %}
+                {% endfor %}
+                <span>({{ product.reviews.count }} reviews)</span>
+            </div>
+        </div>
+    </div>
+    {% if product.image %}
+    <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-image">
+    {% endif %}
+
+    <section class="review-form-section">
+        <form method="post" action="" class="review-form">
+            {% csrf_token %}
+            <input type="hidden" name="product_pk" value="{{ product.pk }}">
+            <div class="form-row">
+                {{ form.user.label_tag }}<br>
+                {{ form.user }}<br>
+                {{ form.user.errors }}
+            </div>
+            <div class="form-row">
+                {{ form.rating.label_tag }}<br>
+                {{ form.rating }}<br>
+                {{ form.rating.errors }}
+            </div>
+            <div class="form-row">
+                {{ form.comment.label_tag }}<br>
+                {{ form.comment }}<br>
+                {{ form.comment.errors }}
+            </div>
+            <button type="submit">Submit Review</button>
+        </form>
+    </section>
+
+    <section class="existing-reviews">
+        <h2>Existing Reviews</h2>
+        <div class="reviews-list">
+            {% for r in product.reviews.all %}
+            <div class="review-card">
+                <div class="stars">
+                    {% for i in "12345" %}
+                        {% if i|add:'0' <= r.rating %}
+                            <i class="fas fa-star"></i>
+                        {% else %}
+                            <i class="far fa-star"></i>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <p><strong>{{ r.user }}</strong> on {{ r.created_at|date:"M j, Y" }}</p>
+                <p>{{ r.comment }}</p>
+            </div>
+            {% empty %}
+                <p>No reviews yet. Be the first!</p>
+            {% endfor %}
+        </div>
+    </section>
+</body>
+</html>
