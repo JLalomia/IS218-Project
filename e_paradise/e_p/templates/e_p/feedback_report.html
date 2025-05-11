@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Feedback Report</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/feedback_report.css' %}">
+</head>
+<body>
+    <a class="back-link" href="/">← Back to Home</a>
+    <h2>Feedback Report</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>User</th>
+                <th>Rating</th>
+                <th>Comment</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for review in reviews %}
+                <tr>
+                    <td>{{ review.product.name }}</td>
+                    <td>{{ review.user }}</td>
+                    <td>{{ review.rating }} / 5</td>
+                    <td>{{ review.comment }}</td>
+                    <td><strong>{{ review.created_at|date:"F j, Y" }}</strong> at {{ review.created_at|date:"g:i A" }}</td>
+
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="5" class="no-data">No feedback submitted yet.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
