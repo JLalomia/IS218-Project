@@ -42,6 +42,7 @@
       <div class="product-container">
         <div class="slider">
             {% for product in top_products %}
+            <a href="{% url 'product_detail' product.pk %}" class="product-card-link">
             <div class="product-card">
                 {% if product.image %}
                 <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-image">

@@ -7,7 +7,8 @@ urlpatterns = [
     path('Signup/', views.Signup, name='Signup'),
     path('ExplorePlatforms/', views.explore_platforms, name='Explore'),
     path('explore/<int:pk>/reviews/', views.explore_reviews, name='explore_reviews'),
-    path('admin-feedback-report/', views.feedback_report, name='feedback_report')
+    path('admin-feedback-report/', views.feedback_report, name='feedback_report'),
+    path('product/<int:pk>/', views.product_detail, name='product_detail'),
 ]
 
 #path('', views.index, name='index'),

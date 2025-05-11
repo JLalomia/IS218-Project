@@ -81,10 +81,21 @@ def Explore(request):
     return render(request, 'e_p/ExplorePlatforms.html')
 
 def explore_platforms(request):
+    '''
     products = Product.objects.all()
+    '''
+    free_products = Product.objects.filter(category='free')
+    oneTime_products = Product.objects.filter(category='one_time')
+    sub_products = Product.objects.filter(category='subscription')
+    
     form = ReviewForm()
 
-    return render(request, 'e_p/ExplorePlatforms.html', {'products': products, 'form':form,})
+    return render(request, 'e_p/ExplorePlatforms.html', {
+        'free_products': free_products,
+        'oneTime_products': oneTime_products, 
+        'sub_products': sub_products,
+        'form':form,
+    })
 
 def explore_reviews(request, pk):
     try:

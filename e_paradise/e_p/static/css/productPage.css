@@ -76,7 +76,6 @@
     margin-bottom: 10px;
   }
   
-  .review-card,
   .product-card {
     width: 400px;
     height: 400px;
@@ -127,4 +126,19 @@
   text-decoration: none;
   color: inherit;
   display: block;
+}
+
+.review-card {
+    width: 250px;
+    background: #a8c2d5;
+    padding: 20px;
+    border: 1px solid #ccc;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    border-radius: 15px;
+    font-size: 0.9rem;
 }
